@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --app-bg: #f4f7f6;
+  --app-bg-secondary: rgba(47, 154, 116, 0.14);
+  --app-bg-highlight: rgba(255, 122, 24, 0.13);
+  --panel-bg: rgba(255, 255, 255, 0.86);
+  --panel-muted: rgba(247, 250, 249, 0.94);
+  --panel-border: rgba(47, 154, 116, 0.13);
+  --text-primary: #13202f;
+  --text-secondary: #576677;
+  --accent-solid: #237d5e;
+  --accent-strong: #1f644d;
+  --hero-start: rgba(27, 79, 61, 0.94);
+  --hero-end: rgba(47, 154, 116, 0.88);
+  --hero-text: #f8fffc;
+  --shadow-soft: 0 18px 40px rgba(17, 34, 51, 0.12);
+  --density-gap: 1rem;
+  --density-pad: 1.25rem;
+  --radius-panel: 24px;
+}
+
+:root[data-ui-mode='compact'] {
+  --app-bg: #eef4f3;
+  --app-bg-secondary: rgba(36, 125, 94, 0.11);
+  --app-bg-highlight: rgba(255, 122, 24, 0.08);
+  --panel-bg: rgba(255, 255, 255, 0.92);
+  --panel-muted: rgba(242, 246, 245, 0.96);
+  --panel-border: rgba(47, 154, 116, 0.1);
+  --density-gap: 0.75rem;
+  --density-pad: 0.95rem;
+  --radius-panel: 18px;
+}
+
+:root[data-ui-mode='contrast'] {
+  --app-bg: #09131a;
+  --app-bg-secondary: rgba(16, 185, 129, 0.18);
+  --app-bg-highlight: rgba(251, 146, 60, 0.16);
+  --panel-bg: rgba(10, 20, 27, 0.9);
+  --panel-muted: rgba(19, 33, 43, 0.92);
+  --panel-border: rgba(96, 165, 250, 0.18);
+  --text-primary: #eef7ff;
+  --text-secondary: #afc4d8;
+  --accent-solid: #0ea5e9;
+  --accent-strong: #7dd3fc;
+  --hero-start: rgba(8, 47, 73, 0.98);
+  --hero-end: rgba(14, 116, 144, 0.96);
+  --hero-text: #effbff;
+  --shadow-soft: 0 20px 44px rgba(2, 6, 23, 0.45);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 15% 20%, var(--app-bg-secondary), transparent 48%),
+    radial-gradient(circle at 85% 10%, var(--app-bg-highlight), transparent 42%),
+    var(--app-bg);
+  color: var(--text-primary);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.app-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 30%),
+    radial-gradient(circle at right bottom, rgba(255, 255, 255, 0.08), transparent 32%);
+  opacity: 0.8;
+}
+
+.app-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+.hero-banner {
+  background:
+    linear-gradient(140deg, var(--hero-start), var(--hero-end)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  color: var(--hero-text);
+}
+
+.page-title {
+  color: inherit;
+  letter-spacing: -0.04em;
+}
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.surface-copy {
+  color: var(--text-primary);
+}
+
+.surface-subtle {
+  color: var(--text-secondary);
+}
+
+.density-pad {
+  padding: var(--density-pad);
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: var(--density-gap);
+}
+
+input,
+select,
+textarea {
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+button {
+  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.35);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

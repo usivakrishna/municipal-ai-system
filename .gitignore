@@ -1,0 +1,14 @@
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+backend/node_modules/
+backend/.env
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+ai-service/.venv/
+ai-service/__pycache__/
+ai-service/.env
+
+run-logs/
