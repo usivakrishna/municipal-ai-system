@@ -1,0 +1,1 @@
+import{d as e}from"./index-biX2Ta-p.js";const s=async(a={})=>(await e.get("/admin/delayed",{params:a})).data,t=async()=>(await e.get("/admin/dashboard")).data,r={getDelayedComplaints:s,getDashboard:t};export{r as a};

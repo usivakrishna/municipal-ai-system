@@ -1,0 +1,1 @@
+import{j as e}from"./index-biX2Ta-p.js";const a=({label:r="Loading..."})=>e.jsxs("div",{className:"app-panel flex items-center gap-3 rounded-[20px] px-4 py-3 text-[var(--accent-strong)]",children:[e.jsx("div",{className:"h-4 w-4 animate-spin rounded-full border-2 border-brand-300 border-t-brand-700"}),e.jsx("span",{className:"text-sm font-medium",children:r})]});export{a as L};
